@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mahlatsisambe/Docker-React -f Dockerfile.dev .
+
+script:
+  - docker run  mahlatsisambe/Docker-React npm run test -- --coverage
